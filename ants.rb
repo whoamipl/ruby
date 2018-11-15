@@ -3,26 +3,26 @@ require 'optionparser'
 options = {}
 pritners = Array.new
 
-ARGV << '-h' if ARGV.empty?
+ARGV << '-h' if ARGV.empty? 
 OptionParser.new do |opts|
     opts.banner = "Useage: ruby ants.rb [options]"
-    opts.on("-w", "--width", Integer, "Width in lines of the Anthill") do |width|
+    opts.on("-w", "--width WIDTH", Integer, "Width in lines of the Anthill") do |width|
         options[:width] = width
     end
-    opts.on("-h", "--height", Integer, "Heigth in lines of the Anthill") do |height|
+    opts.on("-y", "--height WIDTH", Integer, "Heigth in lines of the Anthill") do |height|
         options[:height] = height
     end
-    opts.on("-a", "--ants", Integer, "Width in lines of the Anthill") do |ants|
+    opts.on("-a", "--ants AMOUNT", Integer, "Width in lines of the Anthill") do |ants|
         options[:ants] = ants
     end
     opts.on("-h", "--help", "Prints this help") do
         puts opts
         exit
-    end 
-    opts.on_tail()
+    end
 end.parse!
-    
-anthill = AntHill.new(10,10,10)
+
+puts options
+anthill = AntHill.new(options[:width], options[:height], options[:ants])
 anthill.fillAnthill()
 loop do 
     anthill.printAnthill()
