@@ -8,7 +8,7 @@ class AntHill
     def fillAnthill() 
         (0..@hill.length - 1).each do |row|
             (0..@hill[0].length - 1).each do |col|
-                @hill[row][col] = '*'
+                @hill[row][col] = ' '
             end
         end
     end
@@ -27,12 +27,4 @@ class AntHill
         r = Random.new
         return r.rand(0..9), r.rand(0..9)
     end
-end
-
-a = AntHill.new(10,10,10)
-a.fillAnthill()
-loop do 
-    a.printAnthill()
-    sleep 0.2
-    system 'clear'
 end
