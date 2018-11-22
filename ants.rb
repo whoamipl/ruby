@@ -1,5 +1,6 @@
 require_relative "Anthill"
 require 'optionparser'
+require 'ansi/code'
 options = {}
 pritners = Array.new
 
@@ -23,9 +24,11 @@ end.parse!
 
 puts options
 anthill = AntHill.new(options[:width], options[:height], options[:ants])
+puts ANSI::Code.on_white
+puts ANSI::Code.bold
 anthill.fillAnthill()
 loop do 
     anthill.printAnthill()
-    sleep 0.2
+    sleep 0.5
     system 'clear'
 end

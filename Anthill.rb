@@ -1,4 +1,5 @@
 require 'time'
+require 'ansi/code'
 
 class AntHill
     @@ant = "\u{1F41C}"
@@ -28,7 +29,7 @@ class AntHill
         (0..@antAmout - 1).each do |i|
             cord = getRandomCord()
             oldCords[i] = cord
-            @hill[cord[0]][cord[1]] = AntHill.ant.encode('UTF-8')
+            @hill[cord[0]][cord[1]] = ANSI::Code.red + AntHill.ant.encode('UTF-8')
         end
         @hill.each { |x|
             puts x.join(" ")
