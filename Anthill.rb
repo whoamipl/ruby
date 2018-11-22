@@ -24,7 +24,8 @@ class AntHill
 
     def printAnthill()
         oldCords = {}
-        (0..@antAmout).each do |i|
+        fillAnthill()
+        (0..@antAmout - 1).each do |i|
             cord = getRandomCord()
             oldCords[i] = cord
             @hill[cord[0]][cord[1]] = AntHill.ant.encode('UTF-8')
