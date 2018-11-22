@@ -1,5 +1,12 @@
 require 'time'
+
 class AntHill
+    @@ant = "\u{1F41C}"
+
+    def AntHill.ant 
+        @@ant
+    end
+
     def initialize(x,y,antAmout)
         @hill = Array.new(x) { Array.new(y)}
         @antAmout = antAmout
@@ -10,7 +17,7 @@ class AntHill
     def fillAnthill() 
         (0..@hill.length - 1).each do |row|
             (0..@hill[0].length - 1).each do |col|
-                @hill[row][col] = '*'
+                @hill[row][col] = " "
             end
         end
     end
@@ -20,7 +27,7 @@ class AntHill
         (0..@antAmout).each do |i|
             cord = getRandomCord()
             oldCords[i] = cord
-            @hill[cord[0]][cord[1]] = "m"
+            @hill[cord[0]][cord[1]] = AntHill.ant.encode('UTF-8')
         end
         @hill.each { |x|
             puts x.join(" ")
